@@ -1,0 +1,39 @@
+---
+title: "`smdi`"
+subtitle: "An R package to perform routine structural missing data investigations in real-world data"
+date: "May 2, 2023"
+date-format: long
+author:
+  - name: Janick Weberpals, RPh, PhD
+    corresponding: true
+    orcid: 0000-0003-0404-7394
+    email: jweberpals@bwh.harvard.edu
+    url: janickweberpals.github.io
+    affiliations:
+      - name: Division of Pharmacoepidemiology and Pharmacoeconomics <br> Brigham and Women's Hospital <br> Harvard Medical School
+        address: 1620 Tremont Street
+        city: Boston
+        state: MA
+        postal-code: 02120
+format:
+  revealjs:
+    theme: default
+    echo: false
+    auto-stretch: false
+    smaller: true
+    scrollable: true 
+    toc: true
+    toc-depth: 1
+    reference-location: document
+    slide-number: true
+    logo: logo.png
+    footer: Calibrating real-world evidence studies in oncology against randomized trials
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+```{r}
+1 + 1
+```
