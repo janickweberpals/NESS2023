@@ -1,5 +1,3 @@
 project:
-  title: "ness2023"
-
-
-
+  title: "`smdi` at NESS 2023"
+  output-dir: docs
