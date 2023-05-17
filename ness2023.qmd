@@ -121,8 +121,6 @@ Unresolved challenges for `causal inference`:
 
 The `smdi` package aims to streamline these structural missing data diagnostics (and more!)
 
-![](smdi_hexagon.png){fig-align="center" width="50%"}
-
 ... let's walk through an example and functionalities of `smdi`
 
 The installation is currently directly from our GitLab repository (CRAN submission planned soon!)
@@ -244,3 +242,8 @@ smdi_little(data = smdi_data)
 ## Group 2 diagnostics
 
 ## References
+::: callout-note
+# References cited in this presentation
+::: {#refs}
+:::
+:::
