@@ -1,7 +1,7 @@
 ---
 title: "`smdi`"
 subtitle: "An R package to perform routine structural missing data investigations in real-world data"
-date: "May 2, 2023"
+date: "June 3-6, 2023"
 date-format: long
 author:
   - name: Janick Weberpals, RPh, PhD
@@ -18,22 +18,229 @@ author:
 format:
   revealjs:
     theme: default
-    echo: false
-    auto-stretch: false
+    echo: true
+    embed-resources: false
+    reference-location: document # any citation will appear at the end
+    slide-number: true
+    auto-stretch: true
     smaller: true
-    scrollable: true 
     toc: true
     toc-depth: 1
-    reference-location: document
-    slide-number: true
-    logo: logo.png
-    footer: Calibrating real-world evidence studies in oncology against randomized trials
+    logo: smdi_hexagon.png
+    css: logo.css
+    footer: smdi - An R package to perform routine structural missing data investigations in real-world data
+bibliography: references.bib
+csl: epidemiology.csl
 ---
 
-## Quarto
+## Disclosures
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+::: callout-warning
+## Disclosures
+
+-   Janick Weberpals reports prior employment by Hoffmann-La Roche and previously held shares in Hoffmann-La Roche
+-   This project was supported by Task Order 75F40119F19002 under Master Agreement 75F40119D10037 from the U.S. Food and Drug Administration (FDA)
+:::
+
+## Background
+
+Administrative insurance claims databases are increasingly linked to **electronic health records (EHR)** to improve confounding adjustment for variables which cannot be measured in administrative claims
+
+::: callout-note
+# Examples:
+
+-   Labs (HbA1c, LDL, etc.)
+-   Vitals (Blood pressure, BMI, etc.)
+-   Disease-specific data (cancer stage, biomarkers, etc.)
+-   Physician assessments (ECOG, etc.)
+-   Lifestyle factors (smoking, alcohol, etc.)
+
+These covariates are often just partially observed for various reasons:
+
+-   Physician did not perform/order a certain test
+-   Certain measurements are just collected for particularly sick patients
+-   Information is 'hiding' in unstructured records, e.g. clinical notes
+:::
+
+## Knowledge gaps and objectives
+
+Missing data in confounding factors are frequent
+
+::: callout-note
+# Two common missing data taxonomies
+
+-   **Mechanisms**: Missing completely at random (MCAR), at random (MAR) and not at random (MNAR)
+-   **Patterns**: Monotone, Non-monotone
+:::
+
+Unresolved challenges for `causal inference`:
+
+-   In an empirical study, it is usually unclear which of the missing data mechanisms and patterns are dominating.
+-   How do any of these mechanisms relate to bias in a given RWD study, given the strength of correlations between exposure, covariates and outcomes **in high-dimensional covariate spaces (e.g., database linkages)**?
+
+## Objectives
+
+::: callout-tip
+# Objectives of the Sentinel Innovation Center Causal Inference Workstream
+
+-   Develop a framework and tools to assess the structure of missing data processes in EHR studies
+-   Connect this with the most appropriate analytical approach, followed by sensitivity analyses
+-   **Develop an `R package` to implement framework and missing data investigations on a routine basis**\
+:::
+
+![](images/ci3.png){fig-align="center"}
+
+## Assumed missingness structures
+
+![Causal diagrams/M-graphs[@choi2019; @mohan2021] provide a more natural way to understand the assumptions regarding missing (confounder) data for a given research question, Legend: a) Missing completely at random (MCAR), b) Missing at random (MAR), c) Missing not at random 1 (MNAR unmeasured), d) Missing not at random 2 (MNAR value), Notation: E = Exposure, Y = Outcome, C1 = Fully observed confounders, C = Confounder of interest, C_obs = Observed portion of C, M = Missingness indicator](images/dag.png){fig-align="center" width="50%"}
+
+## Missing data diagnostics
+
+![](images/diagnostics.png){fig-align="center"}
+
+## Plasmode simulation - results
+
+::: callout-tip
+# Observations
+
+-   Large scale simulation revealed characteristic patterns of the diagnostic parameters matched to missing data structure
+-   The observed diagnostic pattern of a specific study will give insights into the likelihood of underlying missingness structures
+:::
+
+![Plasmode simulation results averaged across all scenarios and simulated datasets.](images/results.png){fig-align="center"}
+
+## Plasmode simulation - results
+
+![The observed diagnostic pattern of a specific study will give insights into the likelihood of underlying missingness structures](images/results_example1.png){fig-align="center"}
+
+## Plasmode simulation - results
+
+![The observed diagnostic pattern of a specific study will give insights into the likelihood of underlying missingness structures](images/results_example2.png){fig-align="center"}
+
+------------------------------------------------------------------------
+
+The `smdi` package aims to streamline these structural missing data diagnostics (and more!)
+
+![](smdi_hexagon.png){fig-align="center" width="50%"}
+
+... let's walk through an example and functionalities of `smdi`
+
+The installation is currently directly from our GitLab repository (CRAN submission planned soon!)
+
+```{r, eval=FALSE}
+#| eval: false
+devtools::install_git("https://gitlab-scm.partners.org/janickweberpals/smdi.git", ref = "dev")
+```
+
+Let's go:
 
 ```{r}
-1 + 1
+library(smdi)
+library(dplyr)
 ```
+
+## `smdi` bundled datasets
+
+-   The `smdi` package comes with two exemplary (simulated) datasets:
+    -   `smdi_data` (includes some partially observed covariates)
+    -   `smdi_data_complete` (complete dataset if you prefer to introduce `NA` yourself)
+
+```{r}
+smdi_data %>% 
+  glimpse()
+```
+
+## Descriptives
+
+-   Let's start with some light descriptives
+-   All `smdi` functions automatically include all variables with at least one missing value (default)
+-   Investigator-specified variables can be selected via the `covar` parameter
+
+```{r}
+smdi_data %>% 
+  smdi_summarize()
+```
+
+## Descriptives - visual
+
+Overall
+
+```{r}
+smdi_data %>% 
+  smdi_vis()
+```
+
+## Descriptives - visual
+
+Stratified by another variable (stratum-specific sample size is the denominator)
+
+```{r}
+smdi_data %>% 
+  smdi_vis(strata = "exposure")
+```
+
+## Descriptives - pattern
+
+`smdi` uses a *re-export* of the **naniar**[@naniar] `gg_miss_upset` and **mice**[@mice] `md.pattern` functions to investigate potentially underlying **missing data patterns**
+
+::: callout-note
+*Monotone and non-monotone (or general)*. A missing data pattern is said to be *monotone* if the variables $Y_j$ can be ordered such that if $Y_j$ is missing then all variables $Y_k$ with $k>j$ are also missing. This occurs, for example, in longitudinal studies with drop-out. If the pattern is not monotone, it is called *non-monotone* or *general*.[@mice]
+:::
+
+## Descriptives - pattern
+
+`smdi` uses a *re-export* of the **naniar**[@naniar] `gg_miss_upset` function to investigate potentially underlying **missing data patterns**
+
+```{r}
+smdi_data %>% 
+  gg_miss_upset()
+```
+
+## Group 1 diagnostics
+
+> Differences in covariate distributions
+
+```{r}
+asmd <- smdi_asmd(data = smdi_data)
+asmd
+```
+
+The output returns an *asmd* object that much more information than what is captured in the S3 generic *print* output, e.g. a complete '*Table 1*' that displays the covariate distributions of patients:
+
+```{r}
+head(asmd$pdl1_num$asmd_table1)
+```
+
+## Group 1 diagnostics
+
+> Differences in covariate distributions
+
+Investigators can also inspect standardized mean differences[@Austin2019] by covariate in detail:
+
+```{r}
+asmd$pdl1_num$asmd_plot
+```
+
+## Group 1 diagnostics
+
+> Differences in covariate distributions
+
+Little[@little1988] and Hoteling[@hotelling1931] examines variable differences conditional on having an observed covariate value or not using a formal hypothesis test. Rejection of $H0$ would indicate significant differences between these patients strata.
+
+```{r}
+smdi_hotelling(data = smdi_data)
+```
+
+## Group 1 diagnostics
+
+> Differences in covariate distributions
+
+Little's[@little1988] and Hoteling's[@hotelling1931] tests examine variable differences conditional on having an observed covariate value or not using a formal hypothesis test. Rejection of $H0$ would indicate significant differences between these patients strata.
+
+```{r}
+smdi_little(data = smdi_data)
+```
+
+## Group 2 diagnostics
+
+## References

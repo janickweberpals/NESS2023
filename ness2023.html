@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.2.475">
 
   <meta name="author" content="Janick Weberpals, RPh, PhD">
-  <meta name="dcterms.date" content="2023-05-02">
+  <meta name="dcterms.date" content="2006-06-03">
   <title>smdi</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -29,13 +29,95 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
   </style>
   <link rel="stylesheet" href="ness2023_files/libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link rel="stylesheet" href="logo.css">
   <link href="ness2023_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="ness2023_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="ness2023_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="ness2023_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="ness2023_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="ness2023_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
@@ -245,7 +327,6 @@
     }
     .reveal .slide:not(.center) {
       height: 100%;
-      overflow-y: auto;
     }
     .reveal .slide.scrollable {
       overflow-y: auto;
@@ -345,19 +426,368 @@
     </div>
 </div>
 
-  <p class="date">May 2, 2023</p>
+  <p class="date">June 3, 2006</p>
 </section>
-<section id="quarto" class="slide level2">
-<h2>Quarto</h2>
-<p>Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <a href="https://quarto.org" class="uri">https://quarto.org</a>.</p>
+<section id="disclosures" class="slide level2">
+<h2>Disclosures</h2>
+<div class="callout callout-warning callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Disclosures</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Janick Weberpals reports prior employment by Hoffmann-La Roche and previously held shares in Hoffmann-La Roche</li>
+<li>This project was supported by Task Order 75F40119F19002 under Master Agreement 75F40119D10037 from the U.S. Food and Drug Administration (FDA)</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="background" class="slide level2">
+<h2>Background</h2>
+<p>Administrative insurance claims databases are increasingly linked to <strong>electronic health records (EHR)</strong> to improve confounding adjustment for variables which cannot be measured in administrative claims</p>
+<div class="callout callout-note callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Examples:</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Labs (HbA1c, LDL, etc.)</li>
+<li>Vitals (Blood pressure, BMI, etc.)</li>
+<li>Disease-specific data (cancer stage, biomarkers, etc.)</li>
+<li>Physician assessments (ECOG, etc.)</li>
+<li>Lifestyle factors (smoking, alcohol, etc.)</li>
+</ul>
+<p>These covariates are often just partially observed for various reasons:</p>
+<ul>
+<li>Physician did not perform/order a certain test</li>
+<li>Certain measurements are just collected for particularly sick patients</li>
+<li>Information is ‘hiding’ in unstructured records, e.g.&nbsp;clinical notes</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="knowledge-gaps-and-objectives" class="slide level2">
+<h2>Knowledge gaps and objectives</h2>
+<p>Missing data in confounding factors are frequent</p>
+<div class="callout callout-note callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Two common missing data taxonomies</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><strong>Mechanisms</strong>: Missing completely at random (MCAR), at random (MAR) and not at random (MNAR)</li>
+<li><strong>Patterns</strong>: Monotone, Non-monotone</li>
+</ul>
+</div>
+</div>
+</div>
+<p>Unresolved challenges for <code>causal inference</code>:</p>
+<ul>
+<li>In an empirical study, it is usually unclear which of the missing data mechanisms and patterns are dominating.</li>
+<li>How do any of these mechanisms relate to bias in a given RWD study, given the strength of correlations between exposure, covariates and outcomes <strong>in high-dimensional covariate spaces (e.g., database linkages)</strong>?</li>
+</ul>
+</section>
+<section id="objectives" class="slide level2">
+<h2>Objectives</h2>
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Objectives of the Sentinel Innovation Center Causal Inference Workstream</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Develop a framework and tools to assess the structure of missing data processes in EHR studies</li>
+<li>Connect this with the most appropriate analytical approach, followed by sensitivity analyses</li>
+<li><strong>Develop an <code>R package</code> to implement framework and missing data investigations on a routine basis</strong><br>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<img data-src="images/ci3.png" class="r-stretch quarto-figure-center"></section>
+<section id="assumed-missingness-structures" class="slide level2">
+<h2>Assumed missingness structures</h2>
+
+<img data-src="images/dag.png" style="width:50.0%" class="r-stretch quarto-figure-center"><p class="caption">Causal diagrams/M-graphs<span class="citation" data-cites="choi2019 mohan2021"><sup><a href="#/references" role="doc-biblioref" onclick="">1</a>,<a href="#/references" role="doc-biblioref" onclick="">2</a></sup></span> provide a more natural way to understand the assumptions regarding missing (confounder) data for a given research question, Legend: a) Missing completely at random (MCAR), b) Missing at random (MAR), c) Missing not at random 1 (MNAR unmeasured), d) Missing not at random 2 (MNAR value), Notation: E = Exposure, Y = Outcome, C1 = Fully observed confounders, C = Confounder of interest, C_obs = Observed portion of C, M = Missingness indicator</p></section>
+<section id="missing-data-diagnostics" class="slide level2">
+<h2>Missing data diagnostics</h2>
+
+<img data-src="images/diagnostics.png" class="r-stretch quarto-figure-center"></section>
+<section id="plasmode-simulation---results" class="slide level2">
+<h2>Plasmode simulation - results</h2>
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Observations</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Large scale simulation revealed characteristic patterns of the diagnostic parameters matched to missing data structure</li>
+<li>The observed diagnostic pattern of a specific study will give insights into the likelihood of underlying missingness structures</li>
+</ul>
+</div>
+</div>
+</div>
+
+<img data-src="images/results.png" class="r-stretch quarto-figure-center"><p class="caption">Plasmode simulation results averaged across all scenarios and simulated datasets.</p></section>
+<section id="plasmode-simulation---results-1" class="slide level2">
+<h2>Plasmode simulation - results</h2>
+
+<img data-src="images/results_example1.png" class="r-stretch quarto-figure-center"><p class="caption">The observed diagnostic pattern of a specific study will give insights into the likelihood of underlying missingness structures</p></section>
+<section id="plasmode-simulation---results-2" class="slide level2">
+<h2>Plasmode simulation - results</h2>
+
+<img data-src="images/results_example2.png" class="r-stretch quarto-figure-center"><p class="caption">The observed diagnostic pattern of a specific study will give insights into the likelihood of underlying missingness structures</p></section>
+<section class="slide level2">
+
+<p>The <code>smdi</code> package aims to streamline these structural missing data diagnostics (and more!)</p>
+
+<img data-src="smdi_hexagon.png" style="width:50.0%" class="r-stretch quarto-figure-center"><p>… let’s walk through an example and functionalities of <code>smdi</code></p>
+<p>The installation is currently directly from our GitLab repository (CRAN submission planned soon!)</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>devtools<span class="sc">::</span><span class="fu">install_git</span>(<span class="st">"https://gitlab-scm.partners.org/janickweberpals/smdi.git"</span>, <span class="at">ref =</span> <span class="st">"dev"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s go:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(smdi)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="smdi-bundled-datasets" class="slide level2">
+<h2><code>smdi</code> bundled datasets</h2>
+<ul>
+<li>The <code>smdi</code> package comes with two exemplary (simulated) datasets:
+<ul>
+<li><code>smdi_data</code> (includes some partially observed covariates)</li>
+<li><code>smdi_data_complete</code> (complete dataset if you prefer to introduce <code>NA</code> yourself)</li>
+</ul></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>smdi_data <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<pre><code>Rows: 2,500
+Columns: 14
+$ exposure      &lt;int&gt; 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1, 0, 0,…
+$ age_num       &lt;dbl&gt; 35.24, 51.18, 88.17, 50.79, 40.52, 64.57, 73.58, 42.38, …
+$ female_cat    &lt;fct&gt; 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1,…
+$ smoking_cat   &lt;fct&gt; 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1,…
+$ physical_cat  &lt;fct&gt; 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0,…
+$ alk_cat       &lt;fct&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+$ histology_cat &lt;fct&gt; 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0,…
+$ ses_cat       &lt;fct&gt; 2_middle, 3_high, 2_middle, 2_middle, 2_middle, 2_middle…
+$ copd_cat      &lt;fct&gt; 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1,…
+$ eventtime     &lt;dbl&gt; 5.000000000, 4.754220474, 0.253391563, 5.000000000, 5.00…
+$ status        &lt;int&gt; 0, 1, 1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1,…
+$ ecog_cat      &lt;fct&gt; 1, NA, 0, 1, NA, 0, 1, 0, 1, NA, 1, NA, NA, 1, 1, 0, 1, …
+$ egfr_cat      &lt;fct&gt; NA, 0, 1, NA, 1, NA, NA, 0, NA, 0, 1, NA, 0, NA, NA, 0, …
+$ pdl1_num      &lt;dbl&gt; 45.03, NA, 41.74, 45.51, 31.28, NA, 47.28, 37.28, 46.47,…</code></pre>
 </div>
 </div>
-<p><img src="logo.png" class="slide-logo"></p>
-<div class="footer footer-default">
-<p>Calibrating real-world evidence studies in oncology against randomized trials</p>
+</section>
+<section id="descriptives" class="slide level2">
+<h2>Descriptives</h2>
+<ul>
+<li>Let’s start with some light descriptives</li>
+<li>All <code>smdi</code> functions automatically include all variables with at least one missing value (default)</li>
+<li>Investigator-specified variables can be selected via the <code>covar</code> parameter</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>smdi_data <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">smdi_summarize</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 4
+  covariate n_miss prop_miss prop_miss_label
+  &lt;chr&gt;      &lt;int&gt;     &lt;dbl&gt; &lt;chr&gt;          
+1 egfr_cat    1015      40.6 40.60%         
+2 ecog_cat     899      36.0 35.96%         
+3 pdl1_num     517      20.7 20.68%         </code></pre>
+</div>
+</div>
+</section>
+<section id="descriptives---visual" class="slide level2">
+<h2>Descriptives - visual</h2>
+<p>Overall</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>smdi_data <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">smdi_vis</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="ness2023_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section>
+<section id="descriptives---visual-1" class="slide level2">
+<h2>Descriptives - visual</h2>
+<p>Stratified by another variable (stratum-specific sample size is the denominator)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>smdi_data <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">smdi_vis</span>(<span class="at">strata =</span> <span class="st">"exposure"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="ness2023_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
+<section id="descriptives---pattern" class="slide level2">
+<h2>Descriptives - pattern</h2>
+<p><code>smdi</code> uses a <em>re-export</em> of the <strong>naniar</strong><span class="citation" data-cites="naniar"><sup><a href="#/references" role="doc-biblioref" onclick="">3</a></sup></span> <code>gg_miss_upset</code> and <strong>mice</strong><span class="citation" data-cites="mice"><sup><a href="#/references" role="doc-biblioref" onclick="">4</a></sup></span> <code>md.pattern</code> functions to investigate potentially underlying <strong>missing data patterns</strong></p>
+<div class="callout callout-note callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p><em>Monotone and non-monotone (or general)</em>. A missing data pattern is said to be <em>monotone</em> if the variables <span class="math inline">\(Y_j\)</span> can be ordered such that if <span class="math inline">\(Y_j\)</span> is missing then all variables <span class="math inline">\(Y_k\)</span> with <span class="math inline">\(k&gt;j\)</span> are also missing. This occurs, for example, in longitudinal studies with drop-out. If the pattern is not monotone, it is called <em>non-monotone</em> or <em>general</em>.<span class="citation" data-cites="mice"><sup><a href="#/references" role="doc-biblioref" onclick="">4</a></sup></span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="descriptives---pattern-1" class="slide level2">
+<h2>Descriptives - pattern</h2>
+<p><code>smdi</code> uses a <em>re-export</em> of the <strong>naniar</strong><span class="citation" data-cites="naniar"><sup><a href="#/references" role="doc-biblioref" onclick="">3</a></sup></span> <code>gg_miss_upset</code> function to investigate potentially underlying <strong>missing data patterns</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>smdi_data <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">gg_miss_upset</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="ness2023_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
+<section id="group-1-diagnostics" class="slide level2">
+<h2>Group 1 diagnostics</h2>
+<blockquote>
+<p>Differences in covariate distributions</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>asmd <span class="ot">&lt;-</span> <span class="fu">smdi_asmd</span>(<span class="at">data =</span> smdi_data)</span>
+<span id="cb10-2"><a href="#cb10-2"></a>asmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 4
+  covariate asmd_median asmd_min asmd_max
+* &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt;   
+1 ecog_cat  0.029       0.003    0.071   
+2 egfr_cat  0.243       0.010    0.485   
+3 pdl1_num  0.062       0.019    0.338   </code></pre>
+</div>
+</div>
+<p>The output returns an <em>asmd</em> object that much more information than what is captured in the S3 generic <em>print</em> output, e.g.&nbsp;a complete ‘<em>Table 1</em>’ that displays the covariate distributions of patients:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">head</span>(asmd<span class="sc">$</span>pdl1_num<span class="sc">$</span>asmd_table1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                      Stratified by pdl1_num_NA
+                       0               1               p        test SMD     
+  n                    " 1983"         "  517"         ""       ""   ""      
+  exposure (mean (SD)) " 0.43 (0.50)"  " 0.27 (0.45)"  "&lt;0.001" ""   " 0.338"
+  age_num (mean (SD))  "60.60 (14.04)" "62.07 (14.47)" " 0.036" ""   " 0.103"
+  female_cat = 1 (%)   "  717 (36.2) " "  205 (39.7) " " 0.157" ""   " 0.072"
+  smoking_cat = 1 (%)  "  990 (49.9) " "  263 (50.9) " " 0.739" ""   " 0.019"
+  physical_cat = 1 (%) "  707 (35.7) " "  175 (33.8) " " 0.476" ""   " 0.038"</code></pre>
+</div>
+</div>
+</section>
+<section id="group-1-diagnostics-1" class="slide level2">
+<h2>Group 1 diagnostics</h2>
+<blockquote>
+<p>Differences in covariate distributions</p>
+</blockquote>
+<p>Investigators can also inspect standardized mean differences<span class="citation" data-cites="Austin2019"><sup><a href="#/references" role="doc-biblioref" onclick="">5</a></sup></span> by covariate in detail:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>asmd<span class="sc">$</span>pdl1_num<span class="sc">$</span>asmd_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="ness2023_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section>
+<section id="group-1-diagnostics-2" class="slide level2">
+<h2>Group 1 diagnostics</h2>
+<blockquote>
+<p>Differences in covariate distributions</p>
+</blockquote>
+<p>Little<span class="citation" data-cites="little1988"><sup><a href="#/references" role="doc-biblioref" onclick="">6</a></sup></span> and Hoteling<span class="citation" data-cites="hotelling1931"><sup><a href="#/references" role="doc-biblioref" onclick="">7</a></sup></span> examines variable differences conditional on having an observed covariate value or not using a formal hypothesis test. Rejection of <span class="math inline">\(H0\)</span> would indicate significant differences between these patients strata.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">smdi_hotelling</span>(<span class="at">data =</span> smdi_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  covariate hotteling_p
+1  ecog_cat       0.783
+2  egfr_cat       &lt;.001
+3  pdl1_num       &lt;.001</code></pre>
+</div>
+</div>
+</section>
+<section id="group-1-diagnostics-3" class="slide level2">
+<h2>Group 1 diagnostics</h2>
+<blockquote>
+<p>Differences in covariate distributions</p>
+</blockquote>
+<p>Little<span class="citation" data-cites="little1988"><sup><a href="#/references" role="doc-biblioref" onclick="">6</a></sup></span> and Hoteling<span class="citation" data-cites="hotelling1931"><sup><a href="#/references" role="doc-biblioref" onclick="">7</a></sup></span> examines variable differences conditional on having an observed covariate value or not using a formal hypothesis test. Rejection of <span class="math inline">\(H0\)</span> would indicate significant differences between these patients strata.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">smdi_little</span>(<span class="at">data =</span> smdi_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$statistic
+[1] 801.0009
+
+$df
+[1] 86
+
+$p.value
+[1] 0
+
+$missing.patterns
+[1] 8
+
+attr(,"class")
+[1] "little"
+attr(,"row.names")
+[1] 1</code></pre>
+</div>
+</div>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
+
+<img src="smdi_hexagon.png" class="slide-logo r-stretch"><div class="footer footer-default">
+<p>smdi - An R package to perform routine structural missing data investigations in real-world data</p>
+</div>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-choi2019" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Choi J, Dekkers OM, Cessie S le. A comparison of different methods to handle missing data in the context of propensity score analysis. <em>European Journal of Epidemiology</em>. 2019;34(1):23-36. doi:<a href="https://doi.org/10.1007/s10654-018-0447-z">10.1007/s10654-018-0447-z</a></div>
+</div>
+<div id="ref-mohan2021" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Mohan K, Pearl J. Graphical models for processing missing data. <em>Journal of the American Statistical Association</em>. 2021;116(534):1023-1037. doi:<a href="https://doi.org/10.1080/01621459.2021.1874961">10.1080/01621459.2021.1874961</a></div>
+</div>
+<div id="ref-naniar" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Tierney N, Cook D. Expanding tidy data principles to facilitate missing data exploration, visualization and assessment of imputations. 2023;105. doi:<a href="https://doi.org/10.18637/jss.v105.i07">10.18637/jss.v105.i07</a></div>
+</div>
+<div id="ref-mice" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">Buuren S van, Groothuis-Oudshoorn K. <span></span>Mice<span></span>: Multivariate imputation by chained equations in r. 2011;45:1-67. doi:<a href="https://doi.org/10.18637/jss.v045.i03">10.18637/jss.v045.i03</a></div>
+</div>
+<div id="ref-Austin2019" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">5. </div><div class="csl-right-inline">Austin PC. Assessing covariate balance when using the generalized propensity score with quantitative or continuous exposures. <em>Statistical Methods in Medical Research</em>. 2018;28(5):1365-1377. doi:<a href="https://doi.org/10.1177/0962280218756159">10.1177/0962280218756159</a></div>
+</div>
+<div id="ref-little1988" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">6. </div><div class="csl-right-inline">Little RJA. A Test of Missing Completely at Random for Multivariate Data with Missing Values. <em>Journal of the American Statistical Association</em>. 1988;83(404):1198-1202. doi:<a href="https://doi.org/10.1080/01621459.1988.10478722">10.1080/01621459.1988.10478722</a></div>
+</div>
+<div id="ref-hotelling1931" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">7. </div><div class="csl-right-inline">Hotelling H. The Generalization of Student’s Ratio. <em>The Annals of Mathematical Statistics</em>. 1931;2(3):360-378. doi:<a href="https://doi.org/10.1214/aoms/1177732979">10.1214/aoms/1177732979</a></div>
+</div>
 </div>
 </section>
     </div>
@@ -370,7 +800,6 @@
   <script src="ness2023_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="ness2023_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="ness2023_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="ness2023_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="ness2023_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -392,8 +821,7 @@
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'chalkboard': {"buttons":false},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
 'smaller': true,
  
         // Display controls in the bottom right corner
@@ -564,7 +992,7 @@
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
           RevealMath,
           RevealNotes,
