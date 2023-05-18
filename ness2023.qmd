@@ -19,7 +19,7 @@ format:
   revealjs:
     theme: default
     echo: true
-    embed-resources: false
+    embed-resources: true
     reference-location: document # any citation will appear at the end
     slide-number: true
     auto-stretch: true
