@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.2.475">
 
   <meta name="author" content="Janick Weberpals, RPh, PhD">
-  <meta name="dcterms.date" content="2006-06-03">
+  <meta name="dcterms.date" content="2023-06-06">
   <title>smdi</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -114,7 +114,6 @@
     }
   </style>
   <link rel="stylesheet" href="ness2023_files/libs/revealjs/dist/theme/quarto.css" id="theme">
-  <link rel="stylesheet" href="logo.css">
   <link href="ness2023_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="ness2023_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="ness2023_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -426,7 +425,7 @@
     </div>
 </div>
 
-  <p class="date">June 3, 2006</p>
+  <p class="date">June 6, 2023</p>
 </section>
 <section id="disclosures" class="slide level2">
 <h2>Disclosures</h2>
@@ -561,16 +560,11 @@
 <img data-src="images/results_example2.png" class="r-stretch quarto-figure-center"><p class="caption">The observed diagnostic pattern of a specific study will give insights into the likelihood of underlying missingness structures</p></section>
 <section class="slide level2">
 
-<p>The <code>smdi</code> package aims to streamline these structural missing data diagnostics (and more!)</p>
-<p>… let’s walk through an example and functionalities of <code>smdi</code></p>
-<p>The installation is currently directly from our GitLab repository (CRAN submission planned soon!)</p>
+<p>The <code>smdi</code> package aims to streamline these structural missing data diagnostics (and more)!</p>
+<p>… let’s walk through some examples and functionalities of <code>smdi</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>devtools<span class="sc">::</span><span class="fu">install_git</span>(<span class="st">"https://gitlab-scm.partners.org/janickweberpals/smdi.git"</span>, <span class="at">ref =</span> <span class="st">"dev"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Let’s go:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(smdi)</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(smdi)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="smdi-bundled-datasets" class="slide level2">
@@ -583,8 +577,8 @@
 </ul></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>smdi_data <span class="sc">%&gt;%</span> </span>
-<span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>smdi_data <span class="sc">%&gt;%</span> </span>
+<span id="cb2-2"><a href="#cb2-2"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 2,500
 Columns: 14
@@ -613,8 +607,8 @@ $ pdl1_num      &lt;dbl&gt; 45.03, NA, 41.74, 45.51, 31.28, NA, 47.28, 37.28, 46
 <li>Investigator-specified variables can be selected via the <code>covar</code> parameter</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>smdi_data <span class="sc">%&gt;%</span> </span>
-<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">smdi_summarize</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>smdi_data <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">smdi_summarize</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 4
   covariate n_miss prop_miss prop_miss_label
@@ -629,20 +623,20 @@ $ pdl1_num      &lt;dbl&gt; 45.03, NA, 41.74, 45.51, 31.28, NA, 47.28, 37.28, 46
 <h2>Descriptives - visual</h2>
 <p>Overall</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>smdi_data <span class="sc">%&gt;%</span> </span>
-<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">smdi_vis</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>smdi_data <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">smdi_vis</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="ness2023_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section>
+<img data-src="ness2023_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
 <section id="descriptives---visual-1" class="slide level2">
 <h2>Descriptives - visual</h2>
 <p>Stratified by another variable (stratum-specific sample size is the denominator)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>smdi_data <span class="sc">%&gt;%</span> </span>
-<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">smdi_vis</span>(<span class="at">strata =</span> <span class="st">"exposure"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>smdi_data <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">smdi_vis</span>(<span class="at">strata =</span> <span class="st">"exposure"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="ness2023_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
+<img data-src="ness2023_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section>
 <section id="descriptives---pattern" class="slide level2">
 <h2>Descriptives - pattern</h2>
 <p><code>smdi</code> uses a <em>re-export</em> of the <strong>naniar</strong><span class="citation" data-cites="naniar"><sup><a href="#/references" role="doc-biblioref" onclick="">3</a></sup></span> <code>gg_miss_upset</code> and <strong>mice</strong><span class="citation" data-cites="mice"><sup><a href="#/references" role="doc-biblioref" onclick="">4</a></sup></span> <code>md.pattern</code> functions to investigate potentially underlying <strong>missing data patterns</strong></p>
@@ -664,19 +658,37 @@ $ pdl1_num      &lt;dbl&gt; 45.03, NA, 41.74, 45.51, 31.28, NA, 47.28, 37.28, 46
 <h2>Descriptives - pattern</h2>
 <p><code>smdi</code> uses a <em>re-export</em> of the <strong>naniar</strong><span class="citation" data-cites="naniar"><sup><a href="#/references" role="doc-biblioref" onclick="">3</a></sup></span> <code>gg_miss_upset</code> function to investigate potentially underlying <strong>missing data patterns</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>smdi_data <span class="sc">%&gt;%</span> </span>
-<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">gg_miss_upset</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>smdi_data <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">gg_miss_upset</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="ness2023_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
-<section id="group-1-diagnostics" class="slide level2">
-<h2>Group 1 diagnostics</h2>
+<img data-src="ness2023_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
+<section id="smdi_asmd" class="slide level2">
+<h2><code>smdi_asmd</code></h2>
 <blockquote>
-<p>Differences in covariate distributions</p>
+<p>Group 1 diagnostics: Differences in covariate distributions</p>
 </blockquote>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>asmd <span class="ot">&lt;-</span> <span class="fu">smdi_asmd</span>(<span class="at">data =</span> smdi_data)</span>
-<span id="cb10-2"><a href="#cb10-2"></a>asmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>asmd <span class="ot">&lt;-</span> <span class="fu">smdi_asmd</span>(<span class="at">data =</span> smdi_data, <span class="at">median =</span> <span class="cn">TRUE</span>, <span class="at">includeNA =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb9-2"><a href="#cb9-2"></a>asmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 4
+  covariate asmd_median asmd_min asmd_max
+* &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt;   
+1 ecog_cat  0.029       0.003    0.071   
+2 egfr_cat  0.243       0.010    0.485   
+3 pdl1_num  0.062       0.019    0.338   </code></pre>
+</div>
+</div>
+</section>
+<section id="smdi_asmd-1" class="slide level2">
+<h2><code>smdi_asmd</code></h2>
+<blockquote>
+<p>Group 1 diagnostics: Differences in covariate distributions</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>asmd <span class="ot">&lt;-</span> <span class="fu">smdi_asmd</span>(<span class="at">data =</span> smdi_data, <span class="at">median =</span> <span class="cn">TRUE</span>, <span class="at">includeNA =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb11-2"><a href="#cb11-2"></a>asmd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 4
   covariate asmd_median asmd_min asmd_max
@@ -688,7 +700,7 @@ $ pdl1_num      &lt;dbl&gt; 45.03, NA, 41.74, 45.51, 31.28, NA, 47.28, 37.28, 46
 </div>
 <p>The output returns an <em>asmd</em> object that much more information than what is captured in the S3 generic <em>print</em> output, e.g.&nbsp;a complete ‘<em>Table 1</em>’ that displays the covariate distributions of patients:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">head</span>(asmd<span class="sc">$</span>pdl1_num<span class="sc">$</span>asmd_table1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">head</span>(asmd<span class="sc">$</span>pdl1_num<span class="sc">$</span>asmd_table1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                      Stratified by pdl1_num_NA
                        0               1               p        test SMD     
@@ -701,25 +713,25 @@ $ pdl1_num      &lt;dbl&gt; 45.03, NA, 41.74, 45.51, 31.28, NA, 47.28, 37.28, 46
 </div>
 </div>
 </section>
-<section id="group-1-diagnostics-1" class="slide level2">
-<h2>Group 1 diagnostics</h2>
+<section id="smdi_asmd-2" class="slide level2">
+<h2><code>smdi_asmd</code></h2>
 <blockquote>
-<p>Differences in covariate distributions</p>
+<p>Group 1 diagnostics: Differences in covariate distributions</p>
 </blockquote>
 <p>Investigators can also inspect standardized mean differences<span class="citation" data-cites="Austin2019"><sup><a href="#/references" role="doc-biblioref" onclick="">5</a></sup></span> by covariate in detail:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>asmd<span class="sc">$</span>pdl1_num<span class="sc">$</span>asmd_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>asmd<span class="sc">$</span>pdl1_num<span class="sc">$</span>asmd_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="ness2023_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section>
-<section id="group-1-diagnostics-2" class="slide level2">
-<h2>Group 1 diagnostics</h2>
+<section id="smdi_hotelling" class="slide level2">
+<h2><code>smdi_hotelling</code></h2>
 <blockquote>
-<p>Differences in covariate distributions</p>
+<p>Group 1 diagnostics: Differences in covariate distributions</p>
 </blockquote>
-<p>Little<span class="citation" data-cites="little1988"><sup><a href="#/references" role="doc-biblioref" onclick="">6</a></sup></span> and Hoteling<span class="citation" data-cites="hotelling1931"><sup><a href="#/references" role="doc-biblioref" onclick="">7</a></sup></span> examines variable differences conditional on having an observed covariate value or not using a formal hypothesis test. Rejection of <span class="math inline">\(H0\)</span> would indicate significant differences between these patients strata.</p>
+<p>Hotelling’s<span class="citation" data-cites="hotelling1931"><sup><a href="#/references" role="doc-biblioref" onclick="">6</a></sup></span> multivariate t-test examines differences in covariate distributions conditional on having an observed covariate value or not. Rejection of <span class="math inline">\(H0\)</span> would indicate significant differences between these patients strata.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">smdi_hotelling</span>(<span class="at">data =</span> smdi_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">smdi_hotelling</span>(<span class="at">data =</span> smdi_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  covariate hotteling_p
 1  ecog_cat       0.783
@@ -728,14 +740,14 @@ $ pdl1_num      &lt;dbl&gt; 45.03, NA, 41.74, 45.51, 31.28, NA, 47.28, 37.28, 46
 </div>
 </div>
 </section>
-<section id="group-1-diagnostics-3" class="slide level2">
-<h2>Group 1 diagnostics</h2>
+<section id="smdi_little" class="slide level2">
+<h2><code>smdi_little</code></h2>
 <blockquote>
-<p>Differences in covariate distributions</p>
+<p>Group 1 diagnostics: Differences in covariate distributions</p>
 </blockquote>
-<p>Little’s<span class="citation" data-cites="little1988"><sup><a href="#/references" role="doc-biblioref" onclick="">6</a></sup></span> and Hoteling’s<span class="citation" data-cites="hotelling1931"><sup><a href="#/references" role="doc-biblioref" onclick="">7</a></sup></span> tests examine variable differences conditional on having an observed covariate value or not using a formal hypothesis test. Rejection of <span class="math inline">\(H0\)</span> would indicate significant differences between these patients strata.</p>
+<p>Little’s<span class="citation" data-cites="little1988"><sup><a href="#/references" role="doc-biblioref" onclick="">7</a></sup></span> chi-square test takes into account possible patterns of missingness <strong>across all variables</strong> in the dataset. A high test statistics and low p-value (rejection of <span class="math inline">\(H0\)</span>) would indicate that the <strong>global</strong> missing data generating mechanism is not completely at random.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">smdi_little</span>(<span class="at">data =</span> smdi_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">smdi_little</span>(<span class="at">data =</span> smdi_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$statistic
 [1] 801.0009
@@ -756,8 +768,676 @@ attr(,"row.names")
 </div>
 </div>
 </section>
-<section id="group-2-diagnostics" class="slide level2">
-<h2>Group 2 diagnostics</h2>
+<section id="smdi_rf" class="slide level2">
+<h2><code>smdi_rf</code></h2>
+<blockquote>
+<p>Group 2 diagnostics: Ability to predict missingness</p>
+</blockquote>
+<p>The <code>smdi_rf</code> function trains and fits a random forest model to assess the ability to predict missingness for the specified covariate(s).<span class="citation" data-cites="sondhi"><sup><a href="#/references" role="doc-biblioref" onclick="">8</a></sup></span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>auc <span class="ot">&lt;-</span> <span class="fu">smdi_rf</span>(<span class="at">data =</span> smdi_data, <span class="at">train_test_ratio =</span> <span class="fu">c</span>(.<span class="dv">7</span>, .<span class="dv">3</span>), <span class="at">set_seed =</span> <span class="dv">42</span>, <span class="at">n_cores =</span> <span class="dv">3</span>)</span>
+<span id="cb20-2"><a href="#cb20-2"></a>auc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  covariate rf_auc
+* &lt;chr&gt;     &lt;chr&gt; 
+1 ecog_cat  0.510 
+2 egfr_cat  0.629 
+3 pdl1_num  0.516 </code></pre>
+</div>
+</div>
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Parallelization</strong></p>
+</div>
+<div class="callout-content">
+<p>Depending on the amount of data (sample size x covariates), the computation of the function can take some minutes. To speed this up, investigators can parallelize the computation using <code>n_cores</code> (UNIX only).</p>
+</div>
+</div>
+</div>
+</section>
+<section id="smdi_rf-1" class="slide level2">
+<h2><code>smdi_rf</code></h2>
+<p>The resulting <code>smdi_rf</code> object provides the flexibility to investigate the covariate importance of predictors which can give important hints on the potentially underlying missing data generating mechanism.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>auc<span class="sc">$</span>ecog_cat<span class="sc">$</span>rf_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="ness2023_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch"></section>
+<section id="smdi_outcome" class="slide level2">
+<h2><code>smdi_outcome</code></h2>
+<p>Group 3 diagnostic focuses on assessing the association between the missing indicator of the partially observed covariate and the outcome under study (is the missingness differential?).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>outcome <span class="ot">&lt;-</span> <span class="fu">smdi_outcome</span>(</span>
+<span id="cb23-2"><a href="#cb23-2"></a>  <span class="at">data =</span> smdi_data,  </span>
+<span id="cb23-3"><a href="#cb23-3"></a>  <span class="at">model =</span> <span class="st">"cox"</span>,</span>
+<span id="cb23-4"><a href="#cb23-4"></a>  <span class="at">form_lhs =</span> <span class="st">"Surv(eventtime, status)"</span>,</span>
+<span id="cb23-5"><a href="#cb23-5"></a>  <span class="at">exponentiated =</span> <span class="cn">FALSE</span></span>
+<span id="cb23-6"><a href="#cb23-6"></a>  )</span>
+<span id="cb23-7"><a href="#cb23-7"></a></span>
+<span id="cb23-8"><a href="#cb23-8"></a>outcome</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  covariate estimate_crude             estimate_adjusted         
+  &lt;chr&gt;     &lt;glue&gt;                     &lt;glue&gt;                    
+1 ecog_cat  -0.06 (95% CI -0.16, 0.03) -0.06 (95% CI -0.16, 0.03)
+2 egfr_cat  0.06 (95% CI -0.03, 0.15)  -0.01 (95% CI -0.10, 0.09)
+3 pdl1_num  0.12 (95% CI 0.01, 0.23)   0.11 (95% CI -0.00, 0.22) </code></pre>
+</div>
+</div>
+<div class="callout callout-warning callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Supported regression types</strong></p>
+</div>
+<div class="callout-content">
+<p>Currently, the main types of outcome regressions are supported, namely <em>logistic (<code>glm</code>)</em>, <em>linear (<code>lm</code>)</em> and <em>Cox proportional hazards (<code>survival</code>)</em> models are supported and need to be specified using the model and form_lhs.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="smdi_diagnose" class="slide level2">
+<h2><code>smdi_diagnose</code></h2>
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>One function to rule them all: <code>smdi_diagnose</code></strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Wrapper around all of the aforementioned functions</li>
+<li>Input parameters correspond to parameters of the individual functions</li>
+</ul>
+</div>
+</div>
+</div>
+<p>Let’s take a look at a most minimal example</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>diagnostics <span class="ot">&lt;-</span> <span class="fu">smdi_diagnose</span>(</span>
+<span id="cb25-2"><a href="#cb25-2"></a>  <span class="at">data =</span> smdi_data,</span>
+<span id="cb25-3"><a href="#cb25-3"></a>  <span class="at">model =</span> <span class="st">"cox"</span>,</span>
+<span id="cb25-4"><a href="#cb25-4"></a>  <span class="at">form_lhs =</span> <span class="st">"Surv(eventtime, status)"</span>,</span>
+<span id="cb25-5"><a href="#cb25-5"></a>  <span class="at">n_cores =</span> <span class="dv">3</span></span>
+<span id="cb25-6"><a href="#cb25-6"></a>  )</span>
+<span id="cb25-7"><a href="#cb25-7"></a></span>
+<span id="cb25-8"><a href="#cb25-8"></a>diagnostics</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>smdi summary table:
+# A tibble: 3 × 6
+  covariate asmd_median_min_max  hotteling_p rf_auc estimate_crude            
+  &lt;chr&gt;     &lt;chr&gt;                &lt;chr&gt;       &lt;chr&gt;  &lt;glue&gt;                    
+1 ecog_cat  0.029 (0.003, 0.071) 0.783       0.510  -0.06 (95% CI -0.16, 0.03)
+2 egfr_cat  0.243 (0.010, 0.485) &lt;.001       0.629  0.06 (95% CI -0.03, 0.15) 
+3 pdl1_num  0.062 (0.019, 0.338) &lt;.001       0.516  0.12 (95% CI 0.01, 0.23)  
+# ℹ 1 more variable: estimate_adjusted &lt;glue&gt;
+
+p_little: &lt;.001</code></pre>
+</div>
+</div>
+</section>
+<section id="smdi_diagnose-1" class="slide level2">
+<h2><code>smdi_diagnose</code></h2>
+<p>Output is a list that resembles all three group diagnostics validated in the plasmode simulation study…</p>
+<p>Covariate-specific table:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>diagnostics<span class="sc">$</span>smdi_tbl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 6
+  covariate asmd_median_min_max  hotteling_p rf_auc estimate_crude            
+  &lt;chr&gt;     &lt;chr&gt;                &lt;chr&gt;       &lt;chr&gt;  &lt;glue&gt;                    
+1 ecog_cat  0.029 (0.003, 0.071) 0.783       0.510  -0.06 (95% CI -0.16, 0.03)
+2 egfr_cat  0.243 (0.010, 0.485) &lt;.001       0.629  0.06 (95% CI -0.03, 0.15) 
+3 pdl1_num  0.062 (0.019, 0.338) &lt;.001       0.516  0.12 (95% CI 0.01, 0.23)  
+# ℹ 1 more variable: estimate_adjusted &lt;glue&gt;</code></pre>
+</div>
+</div>
+<p>Global Little’s test p-value:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>diagnostics<span class="sc">$</span>p_little</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>p_little: &lt;.001</code></pre>
+</div>
+</div>
+</section>
+<section id="smdi_style_gt" class="slide level2">
+<h2><code>smdi_style_gt</code></h2>
+<p><code>smdi_style_gt</code> takes an object of class <em>smdi</em> (i.e., the output of <code>smdi_diagnose</code>) and formats it into a <strong>publication-ready</strong> <code>gt</code> table:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>diagnostics <span class="sc">%&gt;%</span> </span>
+<span id="cb31-2"><a href="#cb31-2"></a>  <span class="fu">smdi_style_gt</span>(<span class="at">font_size =</span> <span class="dv">18</span>, <span class="at">tbl_width =</span> <span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div id="fdfhrsppch" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#fdfhrsppch table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#fdfhrsppch thead, #fdfhrsppch tbody, #fdfhrsppch tfoot, #fdfhrsppch tr, #fdfhrsppch td, #fdfhrsppch th {
+  border-style: none;
+}
+
+#fdfhrsppch p {
+  margin: 0;
+  padding: 0;
+}
+
+#fdfhrsppch .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: 1000px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#fdfhrsppch .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#fdfhrsppch .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#fdfhrsppch .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#fdfhrsppch .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#fdfhrsppch .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fdfhrsppch .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#fdfhrsppch .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#fdfhrsppch .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#fdfhrsppch .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#fdfhrsppch .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#fdfhrsppch .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#fdfhrsppch .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#fdfhrsppch .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#fdfhrsppch .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#fdfhrsppch .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#fdfhrsppch .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#fdfhrsppch .gt_row {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#fdfhrsppch .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fdfhrsppch .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#fdfhrsppch .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#fdfhrsppch .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#fdfhrsppch .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fdfhrsppch .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#fdfhrsppch .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#fdfhrsppch .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fdfhrsppch .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fdfhrsppch .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#fdfhrsppch .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fdfhrsppch .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#fdfhrsppch .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fdfhrsppch .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#fdfhrsppch .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fdfhrsppch .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#fdfhrsppch .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fdfhrsppch .gt_left {
+  text-align: left;
+}
+
+#fdfhrsppch .gt_center {
+  text-align: center;
+}
+
+#fdfhrsppch .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#fdfhrsppch .gt_font_normal {
+  font-weight: normal;
+}
+
+#fdfhrsppch .gt_font_bold {
+  font-weight: bold;
+}
+
+#fdfhrsppch .gt_font_italic {
+  font-style: italic;
+}
+
+#fdfhrsppch .gt_super {
+  font-size: 65%;
+}
+
+#fdfhrsppch .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#fdfhrsppch .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#fdfhrsppch .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#fdfhrsppch .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#fdfhrsppch .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#fdfhrsppch .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#fdfhrsppch .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+  <thead>
+    
+    <tr class="gt_col_headings">
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="Covariate">Covariate</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="ASMD (min/max)<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>">ASMD (min/max)<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="p Hotelling<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>1</sup></span>">p Hotelling<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="AUC<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>2</sup></span>">AUC<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="beta crude (95% CI)<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>3</sup></span>">beta crude (95% CI)<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>3</sup></span></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="beta (95% CI)<span class=&quot;gt_footnote_marks&quot; style=&quot;white-space:nowrap;font-style:italic;font-weight:normal;&quot;><sup>3</sup></span>">beta (95% CI)<span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>3</sup></span></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="covariate" class="gt_row gt_left">ecog_cat</td>
+<td headers="asmd_median_min_max" class="gt_row gt_left">0.029 (0.003, 0.071)</td>
+<td headers="hotteling_p" class="gt_row gt_left">0.783</td>
+<td headers="rf_auc" class="gt_row gt_left">0.510</td>
+<td headers="estimate_crude" class="gt_row gt_left">-0.06 (95% CI -0.16, 0.03)</td>
+<td headers="estimate_adjusted" class="gt_row gt_left">-0.06 (95% CI -0.16, 0.03)</td></tr>
+    <tr><td headers="covariate" class="gt_row gt_left">egfr_cat</td>
+<td headers="asmd_median_min_max" class="gt_row gt_left">0.243 (0.010, 0.485)</td>
+<td headers="hotteling_p" class="gt_row gt_left">&lt;.001</td>
+<td headers="rf_auc" class="gt_row gt_left">0.629</td>
+<td headers="estimate_crude" class="gt_row gt_left">0.06 (95% CI -0.03, 0.15)</td>
+<td headers="estimate_adjusted" class="gt_row gt_left">-0.01 (95% CI -0.10, 0.09)</td></tr>
+    <tr><td headers="covariate" class="gt_row gt_left">pdl1_num</td>
+<td headers="asmd_median_min_max" class="gt_row gt_left">0.062 (0.019, 0.338)</td>
+<td headers="hotteling_p" class="gt_row gt_left">&lt;.001</td>
+<td headers="rf_auc" class="gt_row gt_left">0.516</td>
+<td headers="estimate_crude" class="gt_row gt_left">0.12 (95% CI 0.01, 0.23)</td>
+<td headers="estimate_adjusted" class="gt_row gt_left">0.11 (95% CI -0.00, 0.22)</td></tr>
+  </tbody>
+  
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="6"> p little: &lt;.001,  Abbreviations: ASMD = Median absolute standardized mean difference across all covariates, AUC = Area under the curve, beta = beta coefficient, CI = Confidence interval, max = Maximum, min = Minimum</td>
+    </tr>
+    <tr>
+      <td class="gt_footnote" colspan="6"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>1</sup></span> Group 1 diagnostic: Differences in patient characteristics between patients with and without covariate</td>
+    </tr>
+    <tr>
+      <td class="gt_footnote" colspan="6"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>2</sup></span> Group 2 diagnostic: Ability to predict missingness</td>
+    </tr>
+    <tr>
+      <td class="gt_footnote" colspan="6"><span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;"><sup>3</sup></span> Group 3 diagnostic: Assessment if missingness is associated with the outcome (crude, adjusted)</td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="smdi_style_gt-1" class="slide level2">
+<h2><code>smdi_style_gt</code></h2>
+<p>Since <code>smdi_style_gt</code> transforms the <em>smdi</em> object into an object of class <em>gt_tbl</em>, an investigator can also take advantage of all of the <code>gt</code> package perks, e.g.&nbsp;exporting the table in different formats, e.g.&nbsp;.docx, .rtf, .pdf, etc.:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">gtsave</span>(</span>
+<span id="cb32-2"><a href="#cb32-2"></a>  <span class="at">data =</span> <span class="fu">smdi_style_gt</span>(diagnostics),</span>
+<span id="cb32-3"><a href="#cb32-3"></a>  <span class="at">filename =</span> <span class="st">"smdi_table.docx"</span>, <span class="co"># name of the final file and file type (e.g., .docx)</span></span>
+<span id="cb32-4"><a href="#cb32-4"></a>  <span class="at">path =</span> <span class="st">"."</span> <span class="co"># path where the file should be stored</span></span>
+<span id="cb32-5"><a href="#cb32-5"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="thanks-for-your-attention" class="slide level2">
+<h2>Thanks for your attention!</h2>
+<ul>
+<li>Test it out yourself: <br></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># install.packages("devtools")</span></span>
+<span id="cb33-2"><a href="#cb33-2"></a>devtools<span class="sc">::</span><span class="fu">install_git</span>(<span class="st">"https://gitlab-scm.partners.org/janickweberpals/smdi.git"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><p>Vignettes/tutorials: <a href="https://janickweberpals.gitlab-pages.partners.org/smdi" class="uri">https://janickweberpals.gitlab-pages.partners.org/smdi</a></p></li>
+<li><div style="color: red">
+<p>Presentation <code>quarto</code> code: <a href="https://github.com/janickweberpals/NESS2023" class="uri">https://github.com/janickweberpals/NESS2023</a> (accessible after SciComms/FDA approval)</p>
+</div></li>
+<li><div style="color: red">
+<p>Presentation slides: <a href="https://janickweberpals.github.io/NESS2023" class="uri">https://janickweberpals.github.io/NESS2023</a> (accessible after SciComms/FDA approval)</p>
+</div></li>
+</ul>
 </section>
 <section id="references" class="slide level2 smaller scrollable">
 <h2>References</h2>
@@ -786,11 +1466,14 @@ attr(,"row.names")
 <div id="ref-Austin2019" class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">5. </div><div class="csl-right-inline">Austin PC. Assessing covariate balance when using the generalized propensity score with quantitative or continuous exposures. <em>Statistical Methods in Medical Research</em>. 2018;28(5):1365-1377. doi:<a href="https://doi.org/10.1177/0962280218756159">10.1177/0962280218756159</a></div>
 </div>
-<div id="ref-little1988" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">6. </div><div class="csl-right-inline">Little RJA. A Test of Missing Completely at Random for Multivariate Data with Missing Values. <em>Journal of the American Statistical Association</em>. 1988;83(404):1198-1202. doi:<a href="https://doi.org/10.1080/01621459.1988.10478722">10.1080/01621459.1988.10478722</a></div>
-</div>
 <div id="ref-hotelling1931" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">7. </div><div class="csl-right-inline">Hotelling H. The Generalization of Student’s Ratio. <em>The Annals of Mathematical Statistics</em>. 1931;2(3):360-378. doi:<a href="https://doi.org/10.1214/aoms/1177732979">10.1214/aoms/1177732979</a></div>
+<div class="csl-left-margin">6. </div><div class="csl-right-inline">Hotelling H. The Generalization of Student’s Ratio. <em>The Annals of Mathematical Statistics</em>. 1931;2(3):360-378. doi:<a href="https://doi.org/10.1214/aoms/1177732979">10.1214/aoms/1177732979</a></div>
+</div>
+<div id="ref-little1988" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">7. </div><div class="csl-right-inline">Little RJA. A Test of Missing Completely at Random for Multivariate Data with Missing Values. <em>Journal of the American Statistical Association</em>. 1988;83(404):1198-1202. doi:<a href="https://doi.org/10.1080/01621459.1988.10478722">10.1080/01621459.1988.10478722</a></div>
+</div>
+<div id="ref-sondhi" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">8. </div><div class="csl-right-inline">Sondhi A, Weberpals J, Yerram P, et al. A systematic approach towards missing lab data in electronic health records: A case study in non-small cell lung cancer and multiple myeloma. (accepted). <em>CPT Pharmacometrics Syst Pharmacol</em>.</div>
 </div>
 </div>
 </div>

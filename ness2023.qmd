@@ -1,7 +1,7 @@
 ---
 title: "`smdi`"
 subtitle: "An R package to perform routine structural missing data investigations in real-world data"
-date: "June 3-6, 2023"
+date: "June 6, 2023"
 date-format: long
 author:
   - name: Janick Weberpals, RPh, PhD
@@ -27,7 +27,7 @@ format:
     toc: true
     toc-depth: 1
     logo: smdi_hexagon.png
-    css: logo.css
+    #css: styles.css
     footer: smdi - An R package to perform routine structural missing data investigations in real-world data
 bibliography: references.bib
 csl: epidemiology.csl
@@ -119,18 +119,9 @@ Unresolved challenges for `causal inference`:
 
 ------------------------------------------------------------------------
 
-The `smdi` package aims to streamline these structural missing data diagnostics (and more!)
+The `smdi` package aims to streamline these structural missing data diagnostics (and more)!
 
-... let's walk through an example and functionalities of `smdi`
-
-The installation is currently directly from our GitLab repository (CRAN submission planned soon!)
-
-```{r, eval=FALSE}
-#| eval: false
-devtools::install_git("https://gitlab-scm.partners.org/janickweberpals/smdi.git", ref = "dev")
-```
-
-Let's go:
+... let's walk through some examples and functionalities of `smdi`
 
 ```{r}
 library(smdi)
@@ -194,12 +185,21 @@ smdi_data %>%
   gg_miss_upset()
 ```
 
-## Group 1 diagnostics
+## `smdi_asmd`
 
-> Differences in covariate distributions
+> Group 1 diagnostics: Differences in covariate distributions
 
 ```{r}
-asmd <- smdi_asmd(data = smdi_data)
+asmd <- smdi_asmd(data = smdi_data, median = TRUE, includeNA = FALSE)
+asmd
+```
+
+## `smdi_asmd`
+
+> Group 1 diagnostics: Differences in covariate distributions
+
+```{r}
+asmd <- smdi_asmd(data = smdi_data, median = TRUE, includeNA = FALSE)
 asmd
 ```
 
@@ -209,9 +209,9 @@ The output returns an *asmd* object that much more information than what is capt
 head(asmd$pdl1_num$asmd_table1)
 ```
 
-## Group 1 diagnostics
+## `smdi_asmd`
 
-> Differences in covariate distributions
+> Group 1 diagnostics: Differences in covariate distributions
 
 Investigators can also inspect standardized mean differences[@Austin2019] by covariate in detail:
 
@@ -219,31 +219,157 @@ Investigators can also inspect standardized mean differences[@Austin2019] by cov
 asmd$pdl1_num$asmd_plot
 ```
 
-## Group 1 diagnostics
+## `smdi_hotelling`
 
-> Differences in covariate distributions
+> Group 1 diagnostics: Differences in covariate distributions
 
-Little[@little1988] and Hoteling[@hotelling1931] examines variable differences conditional on having an observed covariate value or not using a formal hypothesis test. Rejection of $H0$ would indicate significant differences between these patients strata.
+Hotelling's[@hotelling1931] multivariate t-test examines differences in covariate distributions conditional on having an observed covariate value or not. Rejection of $H0$ would indicate significant differences between these patients strata.
 
 ```{r}
 smdi_hotelling(data = smdi_data)
 ```
 
-## Group 1 diagnostics
+## `smdi_little`
 
-> Differences in covariate distributions
+> Group 1 diagnostics: Differences in covariate distributions
 
-Little's[@little1988] and Hoteling's[@hotelling1931] tests examine variable differences conditional on having an observed covariate value or not using a formal hypothesis test. Rejection of $H0$ would indicate significant differences between these patients strata.
+Little's[@little1988] chi-square test takes into account possible patterns of missingness **across all variables** in the dataset. A high test statistics and low p-value (rejection of $H0$) would indicate that the **global** missing data generating mechanism is not completely at random.
 
 ```{r}
 smdi_little(data = smdi_data)
 ```
 
-## Group 2 diagnostics
+## `smdi_rf`
+
+> Group 2 diagnostics: Ability to predict missingness
+
+The `smdi_rf` function trains and fits a random forest model to assess the ability to predict missingness for the specified covariate(s).[@sondhi]
+
+```{r}
+auc <- smdi_rf(data = smdi_data, train_test_ratio = c(.7, .3), set_seed = 42, n_cores = 3)
+auc
+```
+
+::: callout-tip
+## Parallelization
+
+Depending on the amount of data (sample size x covariates), the computation of the function can take some minutes. To speed this up, investigators can parallelize the computation using `n_cores` (UNIX only).
+:::
+
+## `smdi_rf`
+
+The resulting `smdi_rf` object provides the flexibility to investigate the covariate importance of predictors which can give important hints on the potentially underlying missing data generating mechanism.
+
+```{r}
+auc$ecog_cat$rf_plot
+```
+
+## `smdi_outcome`
+
+Group 3 diagnostic focuses on assessing the association between the missing indicator of the partially observed covariate and the outcome under study (is the missingness differential?).
+
+```{r}
+outcome <- smdi_outcome(
+  data = smdi_data,  
+  model = "cox",
+  form_lhs = "Surv(eventtime, status)",
+  exponentiated = FALSE
+  )
+
+outcome
+```
+
+::: callout-warning
+## Supported regression types
+
+Currently, the main types of outcome regressions are supported, namely *logistic (`glm`)*, *linear (`lm`)* and *Cox proportional hazards (`survival`)* models are supported and need to be specified using the model and form_lhs.
+:::
+
+## `smdi_diagnose`
+
+::: callout-tip
+## One function to rule them all: `smdi_diagnose`
+
+-   Wrapper around all of the aforementioned functions
+-   Input parameters correspond to parameters of the individual functions
+:::
+
+Let's take a look at a most minimal example
+
+```{r}
+diagnostics <- smdi_diagnose(
+  data = smdi_data,
+  model = "cox",
+  form_lhs = "Surv(eventtime, status)",
+  n_cores = 3
+  )
+
+diagnostics
+```
+
+## `smdi_diagnose`
+
+Output is a list that resembles all three group diagnostics validated in the plasmode simulation study...
+
+Covariate-specific table:
+
+```{r}
+diagnostics$smdi_tbl
+```
+
+Global Little's test p-value:
+
+```{r}
+diagnostics$p_little
+```
+
+## `smdi_style_gt`
+
+`smdi_style_gt` takes an object of class *smdi* (i.e., the output of `smdi_diagnose`) and formats it into a **publication-ready** `gt` table:
+
+```{r}
+diagnostics %>% 
+  smdi_style_gt(font_size = 18, tbl_width = 1000)
+```
+
+## `smdi_style_gt`
+
+Since `smdi_style_gt` transforms the *smdi* object into an object of class *gt_tbl*, an investigator can also take advantage of all of the `gt` package perks, e.g. exporting the table in different formats, e.g. .docx, .rtf, .pdf, etc.:
+
+```{r}
+#| eval: false
+gtsave(
+  data = smdi_style_gt(diagnostics),
+  filename = "smdi_table.docx", # name of the final file and file type (e.g., .docx)
+  path = "." # path where the file should be stored
+  )
+```
+
+## Thanks for your attention!
+
+-   Test it out yourself: <br>
+
+```{r}
+#| eval: false
+# install.packages("devtools")
+devtools::install_git("https://gitlab-scm.partners.org/janickweberpals/smdi.git")
+```
+
+-   Vignettes/tutorials: <https://janickweberpals.gitlab-pages.partners.org/smdi>
+
+-   ::: {style="color: red"}
+    Presentation `quarto` code: <https://github.com/janickweberpals/NESS2023> (accessible after SciComms/FDA approval)
+    :::
+
+-   ::: {style="color: red"}
+    Presentation slides: <https://janickweberpals.github.io/NESS2023> (accessible after SciComms/FDA approval)
+    :::
 
 ## References
+
 ::: callout-note
 # References cited in this presentation
+
 ::: {#refs}
 :::
 :::
