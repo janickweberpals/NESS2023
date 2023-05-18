@@ -11,8 +11,10 @@ Session Details:
 - Date: June 06, 2023, 02:10 PM to 03:50 PM
 - Venue: Boston University (BU), Boston, MA
 
-- The presentation can be accessed at:
+The presentation can be accessed at:
 
-- `smdi` package website
+- Vignettes/tutorials: <https://janickweberpals.gitlab-pages.partners.org/smdi>
 
-https://janickweberpals.gitlab-pages.partners.org/smdi
+- Presentation `quarto` code: <https://github.com/janickweberpals/NESS2023>
+
+- Presentation slides: <https://janickweberpals.github.io/NESS2023>
