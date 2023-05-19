@@ -27,7 +27,7 @@ format:
     toc: true
     toc-depth: 1
     logo: smdi_hexagon.png
-    #css: styles.css
+    css: styles.css
     footer: smdi - An R package to perform routine structural missing data investigations in real-world data
 bibliography: references.bib
 csl: epidemiology.csl
@@ -130,7 +130,7 @@ library(dplyr)
 
 ## `smdi` bundled datasets
 
--   The `smdi` package comes with two exemplary (simulated) datasets:
+-   The `smdi` package comes with two exemplary **simulated** datasets:
     -   `smdi_data` (includes some partially observed covariates)
     -   `smdi_data_complete` (complete dataset if you prefer to introduce `NA` yourself)
 
@@ -223,7 +223,7 @@ asmd$pdl1_num$asmd_plot
 
 > Group 1 diagnostics: Differences in covariate distributions
 
-Hotelling's[@hotelling1931] multivariate t-test examines differences in covariate distributions conditional on having an observed covariate value or not. Rejection of $H0$ would indicate significant differences between these patients strata.
+Hotelling's[@hotelling1931] multivariate t-test examines differences in covariate distributions conditional on having an observed covariate value or not. Rejection of $H0$ would indicate significant differences between these patient strata.
 
 ```{r}
 smdi_hotelling(data = smdi_data)
@@ -345,9 +345,7 @@ gtsave(
   )
 ```
 
-## Thanks for your attention!
-
--   Test it out yourself: <br>
+## Test it out yourself
 
 ```{r}
 #| eval: false
