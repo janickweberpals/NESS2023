@@ -363,6 +363,55 @@ devtools::install_git("https://gitlab-scm.partners.org/janickweberpals/smdi.git"
     Presentation slides: <https://janickweberpals.github.io/NESS2023> (accessible after SciComms/FDA approval)
     :::
 
+## Acknowledgments
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+::: {.callout-note icon=false}
+## Mass General Brigham
+-   Rishi J. Desai
+-   Robert J. Glynn
+-   Shamika More
+-   Luke Zabotka
+:::
+
+::: {.callout-note icon=false}
+## Duke
+-   Sudha R. Raman
+-   Bradley G. Hammill
+:::
+
+::: {.callout-note icon=false}
+## Kaiser WA
+-   Pamela A. Shaw
+:::
+
+:::
+
+::: {.column width="50%"}
+
+::: {.callout-note icon=false}
+## Harvard Pilgrim/SOC
+-   Darren Toh
+-   John G. Connolly
+-   Kimberly J. Dandreo Gegear
+:::
+
+::: {.callout-note icon=false}
+## FDA
+-   Fang Tian
+-   Wei Liu
+-   Hana Lee
+-   Jenni Li
+-   José J. Hernández-Muñoz
+:::
+
+:::
+
+::: 
+
 ## References
 
 ::: callout-note
