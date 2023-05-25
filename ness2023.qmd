@@ -76,7 +76,7 @@ Missing data in confounding factors are frequent
 Unresolved challenges for `causal inference`:
 
 -   In an empirical study, it is usually unclear which of the missing data mechanisms and patterns are dominating.
--   How do any of these mechanisms relate to bias in a given RWD study, given the strength of correlations between exposure, covariates and outcomes **in high-dimensional covariate spaces (e.g., database linkages)**?
+-   How do any of these mechanisms relate to bias in a given real-world data (RWD) study, given the strength of correlations between exposure, covariates and outcomes **in high-dimensional covariate spaces (e.g., database linkages)**?
 
 ## Objectives
 
