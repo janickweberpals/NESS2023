@@ -13,8 +13,8 @@ Session Details:
 
 The presentation can be accessed at:
 
-- Vignettes/tutorials: <https://janickweberpals.gitlab-pages.partners.org/smdi>
+-   Vignettes/tutorials: [janickweberpals.gitlab-pages.partners.org/smdi](https://janickweberpals.gitlab-pages.partners.org/smdi)
 
-- Presentation `quarto` code: <https://github.com/janickweberpals/NESS2023>
+-   Presentation `quarto` code: [gitlab-scm.partners.org/drugepi/NESS2023](https://gitlab-scm.partners.org/drugepi/NESS2023)
 
-- Presentation slides: <https://janickweberpals.github.io/NESS2023>
+-   Presentation slides: [drugepi.gitlab-pages.partners.org/NESS2023/ness2023.html](https://drugepi.gitlab-pages.partners.org/NESS2023/ness2023.html#/title-slide)
