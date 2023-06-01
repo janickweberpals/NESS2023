@@ -357,7 +357,7 @@ devtools::install_git("https://gitlab-scm.partners.org/janickweberpals/smdi.git"
 
 -   Presentation `quarto` code: [gitlab-scm.partners.org/drugepi/NESS2023](https://gitlab-scm.partners.org/drugepi/NESS2023)
 
--   Presentation slides: [drugepi.gitlab-pages.partners.org/NESS2023](https://drugepi.gitlab-pages.partners.org/NESS2023)
+-   Presentation slides: [drugepi.gitlab-pages.partners.org/NESS2023/ness2023.html](https://drugepi.gitlab-pages.partners.org/NESS2023/ness2023.html#/title-slide)
 
 ## Acknowledgments
 
